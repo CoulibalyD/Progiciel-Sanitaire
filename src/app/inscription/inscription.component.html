@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+</head>
+<body class="d-flex flex-column h-100">
+<div class="container" id="main-container">
+    
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4"><b>INSCRIPTION</b></h1>
+        </div>
+    </div>
+    <!-- Add Personnel Modal -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="shadow p-3 mb-5 bg-body rounded" >
+          <div class="card">             
+            <form #addForm="ngForm" (ngSubmit)="onAddPersonnel(addForm)">
+              <!-- Card header -->
+              <div class="card-header">
+                <h6><img src="assets\img\ins.png" width="120"></h6>
+              </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                    <div class="mb-3">
+                    <label for="firstName">Prenom</label>
+                    <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="Prenom" required>
+                </div>
+              </div>
+                <div class="col-md-6">
+                  <label for="lastName">Nom</label>
+                  <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Nom" required >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+              <div class="mb-3">
+                <label for="age">Age</label>
+                <input type="text" ngModel name="age" class="form-control" id="age" placeholder="age" required>
+            </div>    
+          </div> 
+              <div class="col-md-6">
+                <label for="address">Address</label>
+                <input type="text" ngModel name="address" class="form-control" id="address" placeholder="Address" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+            <div class="mb-3">
+            <label class="form-label">Genre</label><br>
+            <select class="form-select" ngModel type="text" ngModel name="genre" class="form-control" id="genre" placeholder="Genre" required >
+            <option selected>Homme</option>
+            <option value="Femme">Femme</option>
+            </select>
+            </div>
+          </div>
+              <div class="col-md-6">
+                <label for="phone">Phone</label>
+                <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
+            </div>
+          </div>
+            <div class="form-group">
+              <label for="imageUrl">Image Url</label>
+              <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image Url" required>
+          </div>
+          <div class="form-group" hidden >
+            <label for="type">Type</label>
+            <input type="text" ngModel="Patient" name="type" class="form-control" id="type" placeholder="type">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+          <div class="mb-3">
+            <label for="email">Email Address</label>
+            <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+          <label for="password">Password</label>
+          <input type="password" ngModel name="password" class="form-control" id="email" placeholder="Password" required >
+        </div>
+      </div>
+            <div class="modal-footer">
+              <a  (click)="navConex()" class="btn" style="color: rgb(0, 145, 255);" >vous avez un compte?</a>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">Valider</button>
+          </div>
+        </div>
+          </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

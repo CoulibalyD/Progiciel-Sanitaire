@@ -1,0 +1,128 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+  
+  .navbar {
+    background-color: #333;
+  }
+  
+  .navbar a {
+    color: rgb(92, 62, 62);
+    text-decoration: none;
+  }
+  
+  .navbar a:hover {
+    background-color: #444;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .navbar .nav-item {
+    font-size: 0.8em;
+    margin: 0 0.5em;
+  }
+  
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    margin: 2em 0;
+  }
+  
+  h2 {
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  .shoe-images {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em 0;
+  }
+  
+  .shoe-image {
+    width: 300px;
+  }
+  
+  .shoe-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .shoe-info {
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  .shoe-info a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+  }
+  
+  .shoe-info a:hover {
+    color: #444;
+    border-bottom: 1px solid #444;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+  }
+  
+  footer h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  footer p {
+    font-size: 0.8em;
+    margin: 0.5em 0;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #999;
+  }
+  
+  footer .social-links {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0;
+  }
+  
+  footer .social-link {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  footer .social-link i {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  footer .social-link:hover {
+    background-color: #999;
+  }
+  
+  footer .social-link:hover i {
+    color: white;
+  }
+  

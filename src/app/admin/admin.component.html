@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
+</head>
+<body class="d-flex flex-column h-100">
+  <div class="container" id="main-container">
+<br>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Administrateur</h1>
+        <button (click)="listePers()" class="btn btn-info">Liste Personne</button>
+</div>
+  </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="shadow p-3 mb-5 bg-body rounded" >
+            <div class="card">
+              <form #addForm="ngForm" (ngSubmit)="onAddPersonnel(addForm)">
+                <!-- Card header -->
+                <div class="card-header">
+                  <h6><img src="assets\img\pers.png" width="150" height="150" ></h6>
+                  <h4 class="fw-bold" class="modal-title" id="addPersonnelModalLabel">Enregistrement Personnel</h4>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="mb-3">
+                    <label for="firstName" class="form-label">Prenom</label>
+                    <input type="text" name="firstName" ngModel  id="firstName" placeholder="Prenom" required class="form-control" id="exampleInput1" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastName" class="form-label"
+                           >Nom</label
+                      >
+                   <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Nom" required />
+                  </div>
+                   <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="text" ngModel name="age" class="form-control" id="age" placeholder="age" required />
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" ngModel name="address" class="form-control" id="address" placeholder="Address" required />
+                      </div>
+                    </div>
+          
+                    <div class="col-md-6">
+                      <label for="exampleInput5" class="form-label">Genre</label>
+                      <select
+                              class="form-select mb-3"
+                              aria-label="Default select example"
+                              class="form-select" ngModel type="text" ngModel name="genre" class="form-control" id="genre" placeholder="Genre" required
+                              >
+                              <option selected>Homme</option>
+                              <option value="Femme">Femme</option>
+                      </select>
+                    </div>
+                  </div>
+          
+                  <div class="mb-3">
+                    <label for="phone" class="form-label"
+                           >Phone</label
+                      >
+                      <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
+                    </div>
+          
+                  <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                      <div class="mb-3">
+                        <label for="imageUrl" class="form-label">Image Url</label>
+                        <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image Url" >
+                      </div>
+                    </div>
+          
+                    <div class="col-md-6 mb-4 mb-md-0">
+                      <label for="type" class="form-label">Fonction</label>
+                      <select
+                              id="type" 
+                              class="form-select mb-3"
+                              aria-label="Default select example"
+                              class="form-select" ngModel type="text" class="form-control" name="type" required
+                              >
+                              <option selected>Cardiologue</option>
+                              <option value="Laborantin">Laborantin</option>
+                              <option value="Administrateur">Administrateur</option>
+                              <option value="Pediatre">Pediatre</option>
+                              <option value="Generaliste">Generaliste</option>
+                              <option value="Ophtalmologue">Ophtalmologue</option>
+                              <option value="Gynecologue">Gynecologue</option>
+                              <option value="Dentiste">Dentiste</option>
+                              </select>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                      <div class="mb-3">
+                        <label for="email" class="form-label"
+                               >Email Address</label
+                          >
+                          <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+                        </div>
+                    </div>
+          
+                    <div class="col-md-6 mb-4 mb-md-0">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" ngModel name="password" class="form-control" id="email" placeholder="Password" required>
+                    </div>
+                  </div>
+          
+                </div>
+                <div class="modal-footer">
+                <button type="reset" id="addPersonnel" class="btn btn-secondary">Annuler</button>
+                <div>
+                  <button [disabled]="addForm.invalid" type="submit"   class="btn btn-success">Enregistrer</button>
+                </div>
+              </div>
+              </form>
+              <br><br><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</body>
+</html>

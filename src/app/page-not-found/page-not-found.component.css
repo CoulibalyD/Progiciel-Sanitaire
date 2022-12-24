@@ -1,0 +1,10 @@
+h1{
+    font: optional;
+    text-align: center;
+    color: tomato;
+    font-family: ' monospace,Courier New', Courier;
+    font-weight: bold;
+    font-size: 70px;
+}
+html, body { height: 100%; 
+    background-image: url("../../assets/img/back1.png");}

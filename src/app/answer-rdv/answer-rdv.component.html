@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+</head>
+<body class="d-flex flex-column h-100">
+  <br>
+  <div class="container" id="main-container">
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">ESPACE MEDECIN</h1>
+        </div>
+    </div>
+
+    <!-- Add Rdv Modal -->
+  
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="shadow p-3 mb-5 bg-body rounded" >
+            <div class="card">  
+                <div class="card-body"> 
+              <form #addForm="ngForm" (ngSubmit)="onSendMail(addForm)">
+                <div class="form-group">
+                    <label for="recipient">Email Destinateur</label>
+                    <input type="email" ngModel name="recipient" class="form-control" id="recipient" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                  <label for="subject">Oject</label>
+                  <input type="text" ngModel name="subject" class="form-control" id="subject" placeholder="Objet" required>
+              </div>
+              <div class="form-group">
+                <label for="msgBody">Message</label>
+                <textarea type="text" ngModel name="msgBody" class="form-control" id="msgBody" placeholder="Message" required  rows="5">
+                </textarea>
+            </div>
+                <br> 
+                <div class="modal-footer">
+                <button type="reset"  class="btn btn-secondary">Annuler</button>
+                <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">Prendre RDV</button>
+              </div>
+          </form>
+        </div>  
+        </div>
+        </div> 
+    </div>
+    </div>
+  </div>
+</body>
+</html>

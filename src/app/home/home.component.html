@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
+</head>
+<p id="haut"></p>
+<body class="container" id="container">
+  <main role="main" class="flex-shrink-0" style="font-family: monospace">
+    <div class="container mt-5" >
+    <div class="jumbotron">
+        <h1 class="display-4" ><b>WELCOME TO YOUR HEALTH SPACE</b></h1>
+    <br>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary"><a href="#i"><img src="assets/img/haut1.png" alt="" width="30"></a></button>
+    <!-- <div class="container row">
+      <div class="col-md-12">
+          <h1>Upload Image</h1>
+      </div>
+  </div>
+  
+  <div class="container row">
+      <div class="col-md-6">
+          <input type="file" (change)="onFileChanged($event)">
+  
+      </div>
+      <div class="col-md-6">
+          <input type="button" (click)="onUpload()" value="upload">
+      </div>
+  </div>
+  <hr />
+  <div class="container row">
+      <div class="col-md-12">
+          <div *ngIf=message>{{message}}</div>
+      </div>
+  </div>
+  
+  <div class="container row">
+      <div class="col-md-6">
+          <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+              name="name" />
+      </div>
+      <div class="col-md-6">
+          <input type="button" (click)="getImage()" value="Get Image">
+  
+      </div>
+  </div>
+  
+  <div class="container row">
+      <div class="col-md-12">
+          <div *ngIf=retrievedImage>
+              <img [src]="retrievedImage">
+          </div>
+      </div>
+      <br>
+  </div> -->
+
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets\img\1.jpg" width="350" height="350"  >
+          <br><br>
+          <p style="font-size: 20px; color: rgb(8, 41, 54); font-style: italic; font-family: ars;">“Quand nous sommes jeunes, nous dépensons notre santé 
+            pour se faire une fortune... Et quand nous 
+            sommes vieux nous dépensons notre fortune 
+            pour se faire une santé !”</p>
+             
+      </div>
+      <!-- <div class="animate__animated animate__bounce col-md-6 col-md-offset-3" >  -->
+
+      <div class=" col-md-6 col-md-offset-3" > 
+        <a><img src="assets\img\patient.png" width="350" height="350" >
+        <br><br>
+        <p style="font-size: 20px; color: rgb(8, 41, 54); font-style: italic; font-family: ars;">« La santé c'est comme la richesse, il ne suffit pas
+         de l'avoir, il faut savoir la conserver. » « On fait tout
+         pour recouvrer sa santé et bien peu pour la conserver.»
+         «Il n'est aucune chose qui vaille plus que la santé. »
+         « Une bonne santé fait le pauvre aisé. »</p></a>
+         <br><br>
+        </div>
+       <div class="col-md-6 col-md-offset-3">
+        <div><img class="o" src="assets\img\imc.png" width="500"  alt="" ></div>
+        
+       </div>
+       <div class="col-md-6 col-md-offset-3" > <br><br>
+        <p class="p">«L’IMC est un bon indicateur de la corpulence globale d’un individu
+           et des risques associés aux problèmes de poids, 
+           comme le développement d’une obésité, d’un diabète 
+           ou de maladies cardiovasculaires. »</p>
+           <b>Ici nous vous proposons de Calculer Votre IMC</b>
+         <br><br>
+        </div>
+    </div>
+  
+  <h2>Resultat IMC : <b>{{indice}}</b></h2>
+        <input type="number" [(ngModel)]="poids" name="poids" placeholder="Votre poids" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+        <input type="number" [(ngModel)]="taille" name="taille" placeholder="Votre taille" class="form-control" id="exampleInputPassword1">
+        <br><button type="button" name="button" (click)="calcularImc()" class="btn btn-info" >Calculer</button> 
+       
+</main>
+<br>
+<!-- <div (click)="navSpace()" class="button animate__animated animate__bounce btn container mt-5">
+  <span><div class="nv jumbotron">
+        <h2 class="display-4"><b>En savoir plus!!!</b></h2>
+    </div>
+  </span>  
+</div> -->
+<button class="btn btn-outline-primary"> <a href="#haut"><img src="assets/img/bas1.png" width="30" alt=""></a></button>
+<button (click)="navSpace()" class="button " ><span id="i"><h2 class="display-4"><b>En savoir plus !</b></h2></span></button>
+
+  <!-- <div class="slider">
+    <div class="slides">
+        <div class="slide"><img src="assets\img\1.jpg" width="450"  alt="" ></div>
+        <div class="slide"><img src="\assets\img\patient.png" width="450"  alt=""></div>
+        <div class="slide"><img src="\assets\img\covid.png" width="450"  alt=""></div>
+        <div class="slide"><img src="\assets\img\labo2.jpg" width="450" alt="" ></div>
+    </div>
+  </div> -->
+  
+</body>
+</html>
+<router-outlet></router-outlet>

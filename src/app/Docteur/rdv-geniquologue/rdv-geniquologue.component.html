@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+</head>
+<body class="d-flex flex-column h-100">
+  <div class="container" id="main-container">
+    <div class="row align-items-center">
+      <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4"><b>Reception Rendez-vous Gynecologue</b></h1><notifier-container></notifier-container>
+        </div>
+      <div align="center"><img src="assets\img\gynecologue.jpg" width="300" height="290" ></div>
+     
+    </div>
+      <div class="col-md-6">
+          <div *ngFor="let rdv of rdvs" class="mb-3"></div>
+          <h3 class="card-title">Nombre de Rendez-vous encours <span class="text-muted fw-normal ms-2">{{rdvs.length}}</span></h3>
+      </div>
+  </div>
+    <form  class="navar-form navbar-left">
+      <div class="form-group" >
+      <h3> Recherche Le Rdv</h3>
+      <input type="search" (ngModelChange)="searchRdv(key.value)" #key="ngModel" ngModel
+        name="key" id="searchName">
+        <button class="btn btn-outline-info offset-sm-7" (click)="navConsulation()">Consultation</button>
+
+      </div>
+      </form>
+      
+      <div class="shadow p-3 mb-5 bg-body rounded">
+      <div class="row">
+        <div *ngFor="let rdv of rdvs" class="col-xl-3 col-sm-6">  
+            <div  class="card">
+              <button (click)="onOpenModal(rdv,'tra')" class="btn btn-info"><b>{{rdv.etat}}</b></button>
+                <div class="card-body">
+                    <h2> Le patient souffre: {{rdv.titre}}</h2>
+                    <p> Il a besoin d'un medecin: {{rdv.specialite}} <br><br>
+                      pour prendre un rendez-vous le: <button class="btn btn-outline-dark">{{rdv.date}}</button>
+                    </p>
+                    <div class="card-body">
+                      <button class="btn btn-info" (click)="onOpenModal(rdv,'edit')" > Confirmer</button>
+                      <a (click)="onOpenModal(rdv,'delete')" class="btn tooltips" ><img src="assets\img\del.png" width="41" height="37"></a>
+                      <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    
+  <!-- Edit Modal -->
+
+  <div class="modal fade" id="updateRdvModal" tabindex="-1" role="dialog" aria-labelledby="updateRdvModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"> 
+        <div class="modal-body">
+          <h1><img src="assets/img/mail.png" width="100" ></h1>          
+          <form #addForm="ngForm" (ngSubmit)="onSendMail(addForm)">
+            <div class="form-group">
+                <label for="recipient">Email Destinateur</label>
+                <input type="text" ngModel="{{editRdv?.email}}" name="recipient" class="form-control" id="recipient" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="subject">Oject</label>
+              <input type="text" ngModel name="subject" class="form-control" id="subject" placeholder="Objet" required>
+          </div>
+          <div class="form-group">
+            <label for="msgBody">Message</label>
+            <textarea type="text" ngModel name="msgBody" class="form-control" id="msgBody" placeholder="Message" required  rows="5">
+            </textarea>
+        </div>
+            <br> 
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"  class="btn btn-secondary">Close</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-success">Envoyer  <img src="assets\img\send.png" width="25" height="25" ></button>
+          </div>
+      </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+   <!-- Upadate Etat -->
+   <div class="modal fade" id="RdvTraite" tabindex="-1" role="dialog" aria-labelledby="updateRdvModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"> 
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <select type="text" ngModel="Traiter" name="etat" class="form-control" id="etat">
+              <option selected>Traiter</option>
+              <option value="Non-Traite">Non-Traite</option>
+            </select>
+            <br>
+            <div hidden>
+              <input type="text" ngModel="Traiter" name="etat" class="form-control" id="etat" >
+              <input type="text" ngModel="{{editRdv?.id}}" name="id" class="form-control" id="id">
+              <input type="text" ngModel="{{editRdv?.date}}" name="date" class="form-control" id="date">
+              <input type="text" ngModel="{{editRdv?.rdvCode}}" name="rdvCode" class="form-control" id="rdvCode">
+              <input type="text" ngModel="{{editRdv?.specialite}}" name="specialite" class="form-control" id="specialite">
+              <input type="text" ngModel="{{editRdv?.titre}}" name="titre" class="form-control" id="titre">
+              <input type="text" ngModel="{{editRdv?.email}}" name="email" class="form-control" id="email">
+            </div>          
+          <button (click)="onUpdateRdv(editForm.value)" data-dismiss="modal" class="btn btn-info">Valider</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="RdvDelete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Delete Rdv</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Voulez-vous vraiment supprimer {{deleteRdv?.titre}} ?</p>
+            </div>           
+            <div>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+              <button (click)="onDeleteRdv(deleteRdv?.id)" class="btn btn-danger" data-dismiss="modal">Oui</button>
+              <!-- (click)="onDeleteRdv(deleteRdv?.id)" -->
+            </div>
+          </div> 
+        </div>
+    </div>
+    <!-- Notification for no Rdvs -->
+    <div *ngIf="rdvs?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Pas de rendez-vous encours</h4>
+    <p>No Rdv were found.</p>
+    </div>
+    </div>
+  </div>
+</body>
+</html>

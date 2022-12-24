@@ -1,0 +1,4 @@
+Installer google dans angular...
+npm install @agm/core
+npm add @types/googlemaps
+npm i @types/googlemaps@3.39.13

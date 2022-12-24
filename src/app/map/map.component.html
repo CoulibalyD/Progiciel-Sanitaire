@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link th:href="@{styles/main.css}" rel="stylesheet"/>
+</head>
+<body class="container" id="container">
+  <br>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+   <div class="row">
+    <div class="col-md-6">
+      <img src="assets\img\pharma.png" width="390" height="390"  >  
+  </div>
+    <div class="col-md-6 col-md-offset-3">
+      <br>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="13">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          <agm-marker [latitude]="lats" [longitude]="lngs"></agm-marker>
+          <agm-marker [latitude]="lts" [longitude]="lgs"></agm-marker> 
+        </agm-map>
+      </div>
+   </div>
+  </div>
+   <br>
+</body>
+</html>

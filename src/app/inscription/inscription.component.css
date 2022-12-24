@@ -1,0 +1,10 @@
+h6{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-size: 25px;
+    font-family: ar;
+}
+html, body { height: 100%; 
+    background-image: url("../../assets/img/back1.png");}

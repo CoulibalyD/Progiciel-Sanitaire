@@ -1,0 +1,108 @@
+h1{
+    
+    font-family: ars;
+    text-align: center;
+    
+}
+:root {
+    --animate-repeat: 8;
+
+  }
+
+
+h2{
+    font-family: ars;
+    text-align: center;
+    font-size: 40px;
+}
+div{
+    text-align: center;
+}
+
+  
+.slider{
+    width: 500px;
+    overflow: hidden;
+    margin: 50px auto;
+}
+.slides{
+    width: calc(500px *4);
+    animation: glisse 18s infinite;
+}
+.slide{
+    float: left;
+}
+
+@keyframes glisse {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-500px);
+    }
+    50% {
+        transform: translateX(-1000px);
+    }
+    75% {
+        transform: translateX(-1500px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+html, body { height: 100%; 
+    background-image: url("../../assets/img/back.png");}
+    
+
+.nv{
+    background-color: coral;
+}
+.button {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 30px;
+    padding: 50px;
+    width: 30cm;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  } 
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  img:hover {
+    box-shadow: 68px 100px 90px rgba(46, 95, 200, 0.5);
+}
+  img.o:hover{
+    transform: scale(1.2);
+
+  }
+  p.p:hover{
+    box-shadow: 0 0 90px rgba(46, 95, 200, 0.5);
+
+  }

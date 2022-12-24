@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>health</title>
+</head>
+<body>
+<div >
+<nav class="navbar navbar-expand navbar-dark bg-secondary" th:fragment="header" style="font-family: monospace">
+    <a routerLink="home"><img src="assets\img\logoT.png" width="80" alt=""  class="d-inline-block align-middle mr-2"></a> 
+   
+    <a class="navbar-brand" routerLink="home">Accueil</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+             <li class="nav-item" th:class="${activePage == 'personnel'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" routerLink="inscription">Inscription<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" th:class="${activePage == 'inscription'} ? 'nav-item active' : 'nav-item'">
+                <a class="nav-link" routerLink="connexion">Rendez-vous<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        
+        <li class="navbar-nav">
+           <button button type="button" class="btn btn-dark" > <a class="nav-link" routerLink="connexion"><b>Connexion</b></a> </button> 
+        </li>
+        <li>
+        <a routerLink="map"><img src="assets\img\pha.png"  width="40" alt=""></a> 
+        </li> 
+        
+    </div>
+</nav>
+</div>
+</body>
+</html>
+<router-outlet></router-outlet>

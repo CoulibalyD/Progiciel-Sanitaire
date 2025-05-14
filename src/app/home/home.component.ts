@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {  
+export class HomeComponent implements OnInit {
   poids: any;
   taille: any ;
   imc: number = 0;
   indice: any;
   constructor(private httpClient: HttpClient, private router: Router) { }
-  
+
   selectedFile: any;
   retrievedImage: any;
   base64Data: any;
@@ -22,20 +22,27 @@ export class HomeComponent implements OnInit {
   message: any;
   imageName: any;
 
-  calcularImc(): number{
-    let tail = this.taille;
-    let pds = this.poids;
+  calcularImc(): number {
+    const taille = this.taille;
+    const poids = this.poids;
 
-    this.imc = pds / (tail**2);
-     this.indice = Math.round(this.imc) ;
-    
+    if (!taille || !poids || taille <= 0) {
+      this.indice = 0;
+      this.imc = 0;
+      return 0;
+    }
+
+    this.imc = poids / (taille ** 2);
+    this.indice = Math.round(this.imc);
+
     return this.indice;
   }
 
-  
+
+
   ngOnInit(): void {
   }
-  
+
   navSpace(){
     this.router.navigate(['space'])
   }
@@ -50,7 +57,7 @@ export class HomeComponent implements OnInit {
 //Gets called when the user clicks on submit to upload the image
 onUpload() {
   console.log(this.selectedFile);
-  
+
   //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
   const uploadImageData = new FormData();
   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);

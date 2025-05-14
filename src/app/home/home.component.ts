@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   taille: any ;
   imc: number = 0;
   indice: any;
+  interpretation: string = '';
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   selectedFile: any;
@@ -29,11 +30,24 @@ export class HomeComponent implements OnInit {
     if (!taille || !poids || taille <= 0) {
       this.indice = 0;
       this.imc = 0;
+      this.interpretation = 'Veuillez entrer des valeurs.';
       return 0;
     }
 
     this.imc = poids / (taille ** 2);
     this.indice = Math.round(this.imc);
+
+    //Déterminer l'interprétation
+
+    if (this.imc < 18.5){
+      this.interpretation = 'Maigreur'
+    }else if (this.imc < 25){
+      this.interpretation = 'Poids normal';
+    }else if (this.imc < 30){
+      this.interpretation = 'Surpoids'
+    }else {
+      this.interpretation = 'Obésité';
+    }
 
     return this.indice;
   }

@@ -95,7 +95,7 @@
 
 
     <h2>Résultat IMC : <b>{{ indice }}</b></h2>
-
+    <h1 *ngIf="interpretation">Interprétation: <b> {{interpretation}} </b></h1>
     <input type="number" [(ngModel)]="poids" name="poids" placeholder="Votre poids (kg)"
            class="form-control" id="inputPoids">
 
